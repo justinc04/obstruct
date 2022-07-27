@@ -3,7 +3,22 @@ guid: df6143e3cf791104eb6bad149e66fd98
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: colorRed
+    second: {fileID: 2100000, guid: 498d2889db6c8f74d8b276d6a8ba70ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leafsDark
+    second: {fileID: 2100000, guid: ec8b3c44afcde8948aa2fb57c893053d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leafsGreen
+    second: {fileID: 2100000, guid: 0463a2496a94b5945bcf13a78cd2e1a1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -35,7 +50,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 2
+    globalScale: 1.5
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -88,7 +103,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.19999999
+    globalScale: 0.14999999
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

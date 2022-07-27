@@ -9,17 +9,17 @@ public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
     
-    [SerializeField] int cubes;
+    [SerializeField] int stones;
 
     [SerializeField] Enemy enemyPrefab;
-    [SerializeField] GameObject cubePrefab;
+    [SerializeField] GameObject stonePrefab;
 
     [SerializeField] Camera cam;
     [SerializeField] CinemachineVirtualCamera followCam;
     [SerializeField] CinemachineVirtualCamera viewCam;
 
     private Enemy enemy;
-    private int currentCubes;
+    private int currentStones;
 
     private void Awake()
     {
@@ -28,8 +28,8 @@ public class UnitManager : MonoBehaviour
 
     private void Start()
     {
-        currentCubes = cubes;
-        UIManager.Instance.SetCubesText(currentCubes);
+        currentStones = stones;
+        UIManager.Instance.SetStonesText(currentStones);
         viewCam.m_Lens.OrthographicSize = GridManager.Instance.size * 1.7f;
     }
 
@@ -40,7 +40,7 @@ public class UnitManager : MonoBehaviour
             return;
         }
 
-        if (currentCubes == 0)
+        if (currentStones == 0)
         {
             GameManager.Instance.ChangeState(GameState.Lost);
             return;
@@ -59,7 +59,7 @@ public class UnitManager : MonoBehaviour
                         return;
                     }
 
-                    SpawnCube(hit.transform.gameObject.GetComponent<Tile>());
+                    SpawnStone(hit.transform.gameObject.GetComponent<Tile>());
                 }
             }
         }
@@ -75,13 +75,13 @@ public class UnitManager : MonoBehaviour
         GameManager.Instance.ChangeState(GameState.Overview);
     }
 
-    void SpawnCube(Tile hitTile)
+    void SpawnStone(Tile hitTile)
     {
-        GameObject cube = Instantiate(cubePrefab, hitTile.pivot.position + .5f * cubePrefab.transform.localScale.y * Vector3.down, Quaternion.identity);
+        GameObject stone = Instantiate(stonePrefab, hitTile.pivot.position - .25f * Vector3.up, Quaternion.Euler(0, Random.Range(0, 360), 0));
         hitTile.occupied = true;
-        cube.transform.DOMove(hitTile.pivot.position + .5f * cubePrefab.transform.localScale.y * Vector3.up, .2f).SetEase(Ease.OutSine);
-        currentCubes--;
-        UIManager.Instance.SetCubesText(currentCubes);
+        stone.transform.DOMoveY(hitTile.pivot.position.y, .2f).SetEase(Ease.OutSine);
+        currentStones--;
+        UIManager.Instance.SetStonesText(currentStones);
         GameManager.Instance.ChangeState(GameState.EnemyTurn);
     }
 

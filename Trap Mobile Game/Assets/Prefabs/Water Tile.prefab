@@ -139,6 +139,7 @@ MonoBehaviour:
   pivot: {fileID: 5301040067937906899}
   obstaclePrefabs:
   - {fileID: 919132149155446097, guid: 1fd3e003dd85cdb4ca15071d1e37b3ee, type: 3}
+  - {fileID: 919132149155446097, guid: df6143e3cf791104eb6bad149e66fd98, type: 3}
 --- !u!4 &5301040067937906899 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8390346619342914701, guid: 01a0d1dfb97181047b8635ef74eaba2a,

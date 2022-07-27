@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24a704fc2480134d8539309b7efafd2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubesText: {fileID: 1807869385}
+  stonesText: {fileID: 1807869385}
 --- !u!4 &676639850
 Transform:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.015686275, g: 0.105882354, b: 0.1254902, a: 0}
+  m_BackGroundColor: {r: 0.8156863, g: 0.91764706, b: 0.94509804, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -765,7 +765,7 @@ GameObject:
   - component: {fileID: 1807869386}
   - component: {fileID: 1807869385}
   m_Layer: 5
-  m_Name: Cubes Text
+  m_Name: Stones Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -917,10 +917,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e7c35ce796d584d9aadd13b7f60a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cubes: 12
+  stones: 12
   enemyPrefab: {fileID: 2363103876435677721, guid: 97c68519edbec7c4e9f7806ab9b698af,
     type: 3}
-  cubePrefab: {fileID: 6332717959512561686, guid: 06dffc9ed2652b44190c3233da48b03d,
+  stonePrefab: {fileID: 9122216720871975395, guid: 0c1b3660da5abfb49a1500fca19948d7,
     type: 3}
   cam: {fileID: 963194227}
   followCam: {fileID: 968965512}
@@ -1129,7 +1129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   size: 7
-  obstacles: 7
+  obstacles: 20
   grassTile: {fileID: 6862257690669575717, guid: 41d55356b48255f4e958678614c8435a,
     type: 3}
   waterTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,

@@ -7,15 +7,15 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
 
-    [SerializeField] TMP_Text cubesText;
+    [SerializeField] TMP_Text stonesText;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void SetCubesText(int value)
+    public void SetStonesText(int value)
     {
-        cubesText.text = value.ToString();
+        stonesText.text = value.ToString();
     }
 }

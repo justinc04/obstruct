@@ -7,6 +7,7 @@ public class GridManager : MonoBehaviour
     public static GridManager Instance;
 
     public int size;
+    private int radius;
     [SerializeField] int obstacles;
     [SerializeField] Tile grassTile, waterTile;
 
@@ -16,12 +17,12 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        radius = size / 2;
     }
 
     public void GenerateGrid()
     {
-        int radius = size / 2;
-        GenerateObstaclePositions(radius);
+        GenerateObstaclePositions();
 
         tiles = new Dictionary<Vector2, Tile>();
 
@@ -52,21 +53,25 @@ public class GridManager : MonoBehaviour
     }
 
 
-    void GenerateObstaclePositions(int radius)
+    void GenerateObstaclePositions()
     {
         obstaclePositions = new List<Vector2>();
+        int centerObstacles = 0;
 
         for (int i = 0; i < obstacles; i++)
         {
             Vector2 randomPos = new Vector2(Random.Range(-radius, radius + 1), Random.Range(-radius, radius + 1));
-            bool edgeTile = Mathf.Abs(randomPos.x) == radius || Mathf.Abs(randomPos.y) == radius;
             bool centerTile = Mathf.Abs(randomPos.x) <= 1 && Mathf.Abs(randomPos.y) <= 1;
 
-            while (obstaclePositions.Contains(randomPos) || edgeTile || centerTile)
+            while (obstaclePositions.Contains(randomPos) || randomPos == Vector2.zero || centerTile && centerObstacles > 0)
             {
                 randomPos = new Vector2(Random.Range(-radius, radius + 1), Random.Range(-radius, radius + 1));
-                edgeTile = Mathf.Abs(randomPos.x) == radius || Mathf.Abs(randomPos.y) == radius;
                 centerTile = Mathf.Abs(randomPos.x) <= 1 && Mathf.Abs(randomPos.y) <= 1;
+            }
+
+            if (centerTile)
+            {
+                centerObstacles++;
             }
 
             obstaclePositions.Add(randomPos);
@@ -75,11 +80,13 @@ public class GridManager : MonoBehaviour
 
     public void SpawnObstacles()
     {
+        int waterTiles = (int)(obstacles * Random.Range(.3f, .7f));
+
         foreach (Vector2 pos in obstaclePositions)
         {
-            int randomType = Random.Range(0, 2);
+            bool edgeTile = Mathf.Abs(pos.x) == radius || Mathf.Abs(pos.y) == radius;
 
-            if (randomType == 0)
+            if (waterTiles > 0 && !edgeTile)
             {
                 bool spawnObstacle = Random.Range(0, 3) == 0;
                 
@@ -91,6 +98,8 @@ public class GridManager : MonoBehaviour
                 {
                     SpawnTile(waterTile, pos);
                 }
+
+                waterTiles--;
             }
             else
             {

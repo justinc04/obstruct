@@ -109,6 +109,7 @@ MonoBehaviour:
   obstaclePrefabs:
   - {fileID: 919132149155446097, guid: 223817b6b021c6744843709c89bc5cb1, type: 3}
   - {fileID: 919132149155446097, guid: 63fb7642c5c376d40b9d927514cc9fd8, type: 3}
+  - {fileID: 919132149155446097, guid: 92166a15b33bcfd44842b72210e979cc, type: 3}
   normalMaterial: {fileID: 2100000, guid: 0463a2496a94b5945bcf13a78cd2e1a1, type: 2}
   offsetMaterial: {fileID: 2100000, guid: ec8b3c44afcde8948aa2fb57c893053d, type: 2}
 --- !u!23 &1659550347756318110 stripped
