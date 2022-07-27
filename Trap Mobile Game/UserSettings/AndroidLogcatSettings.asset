@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "279fbdd1",
         "name": "com.DefaultCompany.TrapMobileGame",
-        "processId": 15053,
+        "processId": 25518,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -54,6 +54,30 @@
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.TrapMobileGame",
             "processId": 15053,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.TrapMobileGame",
+            "processId": 24089,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.TrapMobileGame",
+            "processId": 13149,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.TrapMobileGame",
+            "processId": 20491,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.TrapMobileGame",
+            "processId": 25518,
             "exited": false
         }
     ],

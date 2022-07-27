@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
         if (possibleMoves.Count == 0)
         {
-            transform.DOScale(0, .5f).SetEase(Ease.InSine).SetDelay(deathDelay);
+            transform.DOMoveY(transform.position.y - transform.localScale.y - .01f, .5f).SetEase(Ease.InSine).SetDelay(deathDelay);
             GameManager.Instance.ChangeState(GameState.Won);
             return;
         }

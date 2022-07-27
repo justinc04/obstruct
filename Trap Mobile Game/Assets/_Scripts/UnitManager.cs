@@ -77,7 +77,7 @@ public class UnitManager : MonoBehaviour
 
     void SpawnStone(Tile hitTile)
     {
-        GameObject stone = Instantiate(stonePrefab, hitTile.pivot.position - .25f * Vector3.up, Quaternion.Euler(0, Random.Range(0, 360), 0));
+        GameObject stone = Instantiate(stonePrefab, hitTile.pivot.position - .25f * Vector3.up, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
         hitTile.occupied = true;
         stone.transform.DOMoveY(hitTile.pivot.position.y, .2f).SetEase(Ease.OutSine);
         currentStones--;
