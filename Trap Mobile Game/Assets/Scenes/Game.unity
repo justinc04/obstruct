@@ -206,7 +206,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.5
     m_Bias: 0.05
     m_NormalBias: 0.4
     m_NearPlane: 0.2
@@ -299,7 +299,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.78039217, g: 0.9372549, b: 0.98039216, a: 0}
+  m_BackGroundColor: {r: 0.6650944, g: 0.9277654, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1134,10 +1134,6 @@ MonoBehaviour:
   grassTile: {fileID: 6862257690669575717, guid: 41d55356b48255f4e958678614c8435a,
     type: 3}
   waterTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,
-    type: 3}
-  fencePrefab: {fileID: 919132149155446097, guid: 1f8bb4a6ac8a5b74baf538ff5f794c1d,
-    type: 3}
-  platformPrefab: {fileID: 6375528939977496131, guid: 3e5e064b775c7cd459d8527ba55a5e9b,
     type: 3}
 --- !u!4 &2045832813
 Transform:

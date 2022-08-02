@@ -10,8 +10,6 @@ public class GridManager : MonoBehaviour
     private int radius;
     [SerializeField] int obstacles;
     [SerializeField] Tile grassTile, waterTile;
-    [SerializeField] GameObject fencePrefab;
-    [SerializeField] GameObject platformPrefab;
 
     private Dictionary<Vector2, Tile> tiles;
     private List<Vector2> obstaclePositions;
@@ -32,11 +30,6 @@ public class GridManager : MonoBehaviour
         {
             for (int y = -radius; y <= radius; y++)
             {
-                if (Mathf.Abs(x) == radius || Mathf.Abs(y) == radius)
-                {
-                    SpawnFence(new Vector2(x, y));
-                }
-
                 if (obstaclePositions.Contains(new Vector2(x, y)))
                 {
                     continue;
@@ -45,9 +38,6 @@ public class GridManager : MonoBehaviour
                 SpawnTile(grassTile, new Vector2(x, y));
             }
         }
-
-        Transform platform = Instantiate(platformPrefab).transform;
-        platform.localScale = new Vector3(size + 2, platform.localScale.y, size + 2);
 
         GameManager.Instance.ChangeState(GameState.SpawnObstacles);
     }
@@ -60,33 +50,6 @@ public class GridManager : MonoBehaviour
         tiles[pos] = spawnedTile;
 
         return spawnedTile;
-    }
-
-    void SpawnFence(Vector2 pos)
-    {
-        if (Mathf.Abs(pos.y) >= Mathf.Abs(pos.x))
-        {
-            if (Mathf.Sign(pos.y) == 1)
-            {
-                Instantiate(fencePrefab, new Vector3(pos.x, .25f, pos.y), Quaternion.identity);
-            }
-            else
-            {
-                Instantiate(fencePrefab, new Vector3(pos.x, .25f, pos.y), Quaternion.Euler(0, 180, 0));
-            }
-        }
-
-        if (Mathf.Abs(pos.y) <= Mathf.Abs(pos.x))
-        {
-            if (Mathf.Sign(pos.x) == 1)
-            {
-                Instantiate(fencePrefab, new Vector3(pos.x, .25f, pos.y), Quaternion.Euler(0, 90, 0));
-            }
-            else
-            {
-                Instantiate(fencePrefab, new Vector3(pos.x, .25f, pos.y), Quaternion.Euler(0, 270, 0));
-            }
-        }
     }
 
     void GenerateObstaclePositions()
