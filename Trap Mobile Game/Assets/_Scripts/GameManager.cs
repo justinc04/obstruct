@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     void HandleGameOver()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Fade.Instance.FadeToScene(0);
     }
 }
 

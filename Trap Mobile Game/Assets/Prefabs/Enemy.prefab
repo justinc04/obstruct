@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bd0493938c172142aee27fb856ed424, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveDelay: 0.4
-  deathDelay: 0.8
+  moveDelay: 0.5
+  deathDelay: 1
   moveSpeed: 2
   gridPosition: {x: 0, y: 0}
