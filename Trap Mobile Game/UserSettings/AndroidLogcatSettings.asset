@@ -10,18 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "279fbdd1",
-            "name": "com.unity3d.mobileremote",
-            "processId": 21016,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 17519,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.TrapMobileGame",
             "processId": 13214,
             "exited": true
@@ -36,6 +24,18 @@
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 8904,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 27992,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 6243,
             "exited": false
         }
     ],

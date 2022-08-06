@@ -38,6 +38,7 @@ public class Fade : MonoBehaviour
     public void FadeToScene(int scene)
     {
         fadeImage.enabled = true;
+        fadeImage.DOPause();
         fadeImage.DOFade(1, duration).SetEase(Ease.Linear).OnComplete(() => SceneManager.LoadScene(scene));
     }  
 
