@@ -44,18 +44,12 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.MoveEnemy();
                 break;
             case GameState.Won:
-                Invoke("HandleGameOver", 4);
+                UIManager.Instance.Won();
                 break;
             case GameState.Lost:
                 UIManager.Instance.Lost();
-                Invoke("HandleGameOver", 4);
                 break;
         }
-    }
-
-    void HandleGameOver()
-    {
-        Fade.Instance.FadeToScene(0);
     }
 }
 

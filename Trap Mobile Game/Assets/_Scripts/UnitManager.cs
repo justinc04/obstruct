@@ -92,7 +92,7 @@ public class UnitManager : MonoBehaviour
 
     public async void Overview()
     {
-        await Task.Delay(2000);
+        await Task.Delay(1500);
         followCam.Priority = 2;
         await Task.Delay(1000);
         GameManager.Instance.ChangeState(GameState.PlayerTurn);

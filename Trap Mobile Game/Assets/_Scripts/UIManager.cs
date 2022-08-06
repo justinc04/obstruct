@@ -11,6 +11,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TMP_Text stonesText;
     [SerializeField] TMP_Text outOfStonesText;
+    [SerializeField] GameObject gameOverMenu;
 
     private void Awake()
     {
@@ -20,19 +21,40 @@ public class UIManager : MonoBehaviour
     public void SetStonesText(int value)
     {
         stonesText.text = value.ToString();
+    }
 
-        if (value <= 3)
-        {
-            stonesText.color = Color.red;
-        }
+    public async void Won()
+    {
+        await Task.Delay(1500);
+
+        gameOverMenu.SetActive(true);
     }
 
     public async void Lost()
     {
         await Task.Delay(500);
 
-        stonesText.DOFade(0, .5f).SetEase(Ease.Linear);
-        outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f);
+        outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
         outOfStonesText.DOFade(1, .5f).SetEase(Ease.Linear);
+
+        await Task.Delay(1500);
+
+        outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.InSine);
+        outOfStonesText.DOFade(0, .5f).SetEase(Ease.Linear);
+
+        await Task.Delay(1000);
+
+        gameOverMenu.SetActive(true);
     }
+
+    public void OnClickRetry()
+    {
+        Fade.Instance.FadeToScene(1);
+    }
+
+    public void OnClickHome()
+    {
+        Fade.Instance.FadeToScene(0);
+    }
+
 }

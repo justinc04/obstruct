@@ -97,6 +97,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveDelay: 0.5
-  deathDelay: 1
+  deathDelay: 0.8
   moveSpeed: 2
   gridPosition: {x: 0, y: 0}
