@@ -1,31 +1,13 @@
 {
     "m_SelectedDeviceId": "279fbdd1",
     "m_SelectedPackage": {
-        "deviceId": "279fbdd1",
-        "name": "com.DefaultCompany.TrapMobileGame",
-        "processId": 17519,
+        "deviceId": "",
+        "name": "",
+        "processId": 0,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 24089,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 13149,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 20491,
-            "exited": true
-        },
         {
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.TrapMobileGame",
@@ -36,12 +18,24 @@
             "deviceId": "279fbdd1",
             "name": "com.unity3d.mobileremote",
             "processId": 21016,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.TrapMobileGame",
             "processId": 17519,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.TrapMobileGame",
+            "processId": 13214,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 15161,
             "exited": false
         }
     ],

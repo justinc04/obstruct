@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
                 Invoke("HandleGameOver", 4);
                 break;
             case GameState.Lost:
+                UIManager.Instance.Lost();
                 Invoke("HandleGameOver", 4);
                 break;
         }

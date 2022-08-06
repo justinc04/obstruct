@@ -38,11 +38,11 @@ public class Fade : MonoBehaviour
     public void FadeToScene(int scene)
     {
         fadeImage.enabled = true;
-        fadeImage.DOFade(1, duration).OnComplete(() => SceneManager.LoadScene(scene));
+        fadeImage.DOFade(1, duration).SetEase(Ease.Linear).OnComplete(() => SceneManager.LoadScene(scene));
     }  
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        fadeImage.DOFade(0, duration).SetDelay(delay).OnComplete(() => fadeImage.enabled = false);
+        fadeImage.DOFade(0, duration).SetEase(Ease.Linear).SetDelay(delay).OnComplete(() => fadeImage.enabled = false);
     }
 }
