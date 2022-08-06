@@ -10,12 +10,6 @@
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 25518,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
             "name": "com.unity3d.mobileremote",
             "processId": 21016,
             "exited": true
@@ -36,6 +30,12 @@
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 15161,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 8904,
             "exited": false
         }
     ],
