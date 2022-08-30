@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
                 UnitManager.Instance.MoveEnemy();
                 break;
             case GameState.Won:
+                UnitManager.Instance.CalculateStars();
                 UIManager.Instance.Won();
                 break;
             case GameState.Lost:

@@ -2,6 +2,7 @@ using System.Threading.Tasks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using DG.Tweening;
 
@@ -11,7 +12,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] TMP_Text stonesText;
     [SerializeField] TMP_Text outOfStonesText;
-    [SerializeField] GameObject gameOverMenu;
+    [SerializeField] CanvasGroup gameOverMenu;
+    [SerializeField] Image[] starImages;
 
     private void Awake()
     {
@@ -25,14 +27,22 @@ public class UIManager : MonoBehaviour
 
     public async void Won()
     {
-        await Task.Delay(1500);
+        await Task.Delay(1300);
 
-        gameOverMenu.SetActive(true);
+        OpenGameOverMenu();
+
+        await Task.Delay(200);
+
+        for (int i = 0; i < UnitManager.Instance.stars; i++)
+        {
+            await Task.Delay(400);
+            starImages[i].DOColor(Color.white, .4f);
+        }
     }
 
     public async void Lost()
     {
-        await Task.Delay(500);
+        await Task.Delay(700);
 
         outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
         outOfStonesText.DOFade(1, .5f).SetEase(Ease.Linear);
@@ -44,7 +54,13 @@ public class UIManager : MonoBehaviour
 
         await Task.Delay(1000);
 
-        gameOverMenu.SetActive(true);
+        OpenGameOverMenu();
+    }
+
+    void OpenGameOverMenu()
+    {
+        gameOverMenu.gameObject.SetActive(true);
+        gameOverMenu.DOFade(1, .3f).SetEase(Ease.Linear);
     }
 
     public void OnClickRetry()

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
+using UnityEngine.Rendering;
 
 public class MenuManager : MonoBehaviour
 {
@@ -17,6 +18,11 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickPlay()
     {
+        if (!SplashScreen.isFinished)
+        {
+            return;
+        }
+
         Fade.Instance.FadeToScene(1);
     }
 }

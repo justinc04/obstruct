@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
 
         if (possibleMoves.Count == 0)
         {
-            transform.DOShakePosition(.3f, .05f, 20, fadeOut: false).SetDelay(deathDelay).OnComplete(() => GameManager.Instance.ChangeState(GameState.Won));
+            transform.DOShakePosition(.3f, .04f, 20, fadeOut: false).SetDelay(deathDelay).OnComplete(() => GameManager.Instance.ChangeState(GameState.Won));
             return;
         }
         

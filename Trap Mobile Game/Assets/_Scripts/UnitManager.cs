@@ -20,6 +20,7 @@ public class UnitManager : MonoBehaviour
 
     private Enemy enemy;
     private int currentStones;
+    [HideInInspector] public int stars;
 
     private void Awake()
     {
@@ -96,5 +97,21 @@ public class UnitManager : MonoBehaviour
         followCam.Priority = 2;
         await Task.Delay(1000);
         GameManager.Instance.ChangeState(GameState.PlayerTurn);
+    }
+
+    public void CalculateStars()
+    {
+        if (currentStones == 0)
+        {
+            stars = 1;
+        }
+        else if (currentStones < 3)
+        {
+            stars = 2;
+        }
+        else
+        {
+            stars = 3;
+        }
     }
 }
