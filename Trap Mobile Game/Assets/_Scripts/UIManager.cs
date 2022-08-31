@@ -14,6 +14,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text outOfStonesText;
     [SerializeField] CanvasGroup gameOverMenu;
     [SerializeField] Image[] starImages;
+    [SerializeField] Color starColor;
 
     private void Awake()
     {
@@ -36,7 +37,7 @@ public class UIManager : MonoBehaviour
         for (int i = 0; i < UnitManager.Instance.stars; i++)
         {
             await Task.Delay(400);
-            starImages[i].DOColor(Color.white, .4f);
+            starImages[i].DOColor(starColor, .4f);
         }
     }
 
