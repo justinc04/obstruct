@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cd3d7d04e146940bb50f63ce020503, type: 3}
+  m_Name: Area 1
+  m_EditorClassIdentifier: 
+  areaNumber: 1
+  areaName: The Grasslands
+  gridSize: 5
+  obstacles: 3
+  primaryTile: {fileID: 1082994358108113563, guid: 41d55356b48255f4e958678614c8435a,
+    type: 3}
+  secondaryTile: {fileID: 1222797812659831602, guid: db7b7282a4aae88498ec29100655c40f,
+    type: 3}
+  menuObject: {fileID: 4222574899941522591, guid: 878fd3672380e024d9d9dce31e5b7063,
+    type: 3}

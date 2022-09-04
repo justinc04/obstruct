@@ -463,7 +463,7 @@ MonoBehaviour:
   - {fileID: 1631996818}
   - {fileID: 180126484}
   - {fileID: 917989653}
-  starColor: {r: 0.94509804, g: 0.8980392, b: 0.6745098, a: 1}
+  starColor: {r: 1, g: 0.87612796, b: 0.28773582, a: 1}
 --- !u!4 &676639850
 Transform:
   m_ObjectHideFlags: 0
@@ -1902,9 +1902,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 7
   obstacles: 6
-  grassTile: {fileID: 6862257690669575717, guid: 41d55356b48255f4e958678614c8435a,
+  grassTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}
-  waterTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,
+  waterTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}
 --- !u!4 &2045832813
 Transform:

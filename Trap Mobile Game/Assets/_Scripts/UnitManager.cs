@@ -101,11 +101,11 @@ public class UnitManager : MonoBehaviour
 
     public void CalculateStars()
     {
-        if (currentStones == 0)
+        if (currentStones < 2)
         {
             stars = 1;
         }
-        else if (currentStones < 3)
+        else if (currentStones < 4)
         {
             stars = 2;
         }
