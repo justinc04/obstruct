@@ -8,8 +8,10 @@ public class AreaObject : ScriptableObject
     public int areaNumber;
     public string areaName;
     public int gridSize;
+    public int stones;
     public int obstacles;
-    public GameObject primaryTile;
-    public GameObject secondaryTile;
+    public Tile primaryTile;
+    public Tile secondaryTile;
     public GameObject menuObject;
+    public Color backgroundColor;
 }

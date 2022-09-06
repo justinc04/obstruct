@@ -1405,6 +1405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameState: 0
+  area: {fileID: 11400000, guid: 30d42afc2eb7cab4ca3d1a3fd8157d7e, type: 2}
 --- !u!4 &1647573900
 Transform:
   m_ObjectHideFlags: 0
@@ -1688,7 +1689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e7c35ce796d584d9aadd13b7f60a11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stones: 10
   enemyPrefab: {fileID: 2363103876435677721, guid: 97c68519edbec7c4e9f7806ab9b698af,
     type: 3}
   stonePrefab: {fileID: 919132149155446097, guid: 22c0d16f91a41e140aa9350486044ab9,
@@ -1900,12 +1900,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8fab2231e61eee4398e90e0ca60e14a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 7
-  obstacles: 6
-  grassTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
-    type: 3}
-  waterTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
-    type: 3}
 --- !u!4 &2045832813
 Transform:
   m_ObjectHideFlags: 0

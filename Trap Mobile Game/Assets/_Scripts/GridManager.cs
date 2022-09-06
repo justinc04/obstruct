@@ -6,10 +6,10 @@ public class GridManager : MonoBehaviour
 {
     public static GridManager Instance;
 
-    public int size;
+    private int size;
     private int radius;
-    [SerializeField] int obstacles;
-    [SerializeField] Tile grassTile, waterTile;
+    private int obstacles;
+    private Tile primaryTile, secondaryTile;
 
     private Dictionary<Vector2, Tile> tiles;
     private List<Vector2> obstaclePositions;
@@ -17,7 +17,11 @@ public class GridManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        size = GameManager.Instance.area.gridSize;
         radius = size / 2;
+        obstacles = GameManager.Instance.area.obstacles;
+        primaryTile = GameManager.Instance.area.primaryTile;
+        secondaryTile = GameManager.Instance.area.secondaryTile;
     }
 
     public void GenerateGrid()
@@ -35,7 +39,7 @@ public class GridManager : MonoBehaviour
                     continue;
                 }
 
-                SpawnTile(grassTile, new Vector2(x, y));
+                SpawnTile(primaryTile, new Vector2(x, y));
             }
         }
 
@@ -91,18 +95,18 @@ public class GridManager : MonoBehaviour
                 
                 if (spawnObstacle)
                 {
-                    SpawnTile(waterTile, pos).SpawnObstacle();
+                    SpawnTile(secondaryTile, pos).SpawnObstacle();
                 }
                 else
                 {
-                    SpawnTile(waterTile, pos);
+                    SpawnTile(secondaryTile, pos);
                 }
 
                 waterTiles--;
             }
             else
             {
-                SpawnTile(grassTile, pos).SpawnObstacle();
+                SpawnTile(primaryTile, pos).SpawnObstacle();
             }
         }
 

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState;
 
+    public AreaObject area;
+
     private void Awake()
     {
         Instance = this;

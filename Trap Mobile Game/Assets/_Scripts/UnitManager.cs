@@ -9,7 +9,7 @@ public class UnitManager : MonoBehaviour
 {
     public static UnitManager Instance;
     
-    [SerializeField] int stones;
+    private int stones;
 
     [SerializeField] Enemy enemyPrefab;
     [SerializeField] GameObject stonePrefab;
@@ -25,13 +25,15 @@ public class UnitManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+        stones = GameManager.Instance.area.stones;
+        cam.backgroundColor = GameManager.Instance.area.backgroundColor;
     }
 
     private void Start()
     {
         currentStones = stones;
         UIManager.Instance.SetStonesText(currentStones);
-        viewCam.m_Lens.OrthographicSize = GridManager.Instance.size * 1.7f;
+        viewCam.m_Lens.OrthographicSize = GameManager.Instance.area.gridSize * 1.7f;
     }
 
     private void Update()
