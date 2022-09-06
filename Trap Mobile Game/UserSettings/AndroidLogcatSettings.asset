@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "279fbdd1",
         "name": "com.DefaultCompany.Obstruct",
-        "processId": 31598,
+        "processId": 25684,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -72,6 +72,12 @@
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 31598,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 25684,
             "exited": false
         }
     ],

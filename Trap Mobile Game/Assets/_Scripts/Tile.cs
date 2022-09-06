@@ -14,6 +14,11 @@ public abstract class Tile : MonoBehaviour
 
     public void SpawnObstacle()
     {
+        if (obstaclePrefabs.Length == 0)
+        {
+            return;
+        }
+
         GameObject randomObstacle = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
         Instantiate(randomObstacle, pivot.position, Quaternion.Euler(0, Random.Range(0, 4) * 90, 0));
         occupied = true;

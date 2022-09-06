@@ -83,13 +83,13 @@ public class GridManager : MonoBehaviour
 
     public void SpawnObstacles()
     {
-        int waterTiles = (int)(obstacles * Random.Range(.3f, .7f));
+        int secondaryTiles = secondaryTile == primaryTile ? 0 : (int)(obstacles * Random.Range(.3f, .7f));
 
         foreach (Vector2 pos in obstaclePositions)
         {
             bool edgeTile = Mathf.Abs(pos.x) == radius || Mathf.Abs(pos.y) == radius;
 
-            if (waterTiles > 0 && !edgeTile)
+            if (secondaryTiles > 0 && !edgeTile)
             {
                 bool spawnObstacle = Random.Range(0, 3) == 0;
                 
@@ -102,7 +102,7 @@ public class GridManager : MonoBehaviour
                     SpawnTile(secondaryTile, pos);
                 }
 
-                waterTiles--;
+                secondaryTiles--;
             }
             else
             {
