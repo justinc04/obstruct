@@ -103,11 +103,11 @@ public class UnitManager : MonoBehaviour
 
     public void CalculateStars()
     {
-        if (currentStones < 2)
+        if (currentStones <= GameManager.Instance.area.starValues[0])
         {
             stars = 1;
         }
-        else if (currentStones < 4)
+        else if (currentStones < GameManager.Instance.area.starValues[1])
         {
             stars = 2;
         }

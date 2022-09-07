@@ -21,6 +21,7 @@ MonoBehaviour:
     type: 3}
   secondaryTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,
     type: 3}
+  starValues: 0000000001000000
   menuObject: {fileID: 4222574899941522591, guid: 878fd3672380e024d9d9dce31e5b7063,
     type: 3}
   backgroundColor: {r: 0.6666667, g: 0.92941177, b: 1, a: 0}

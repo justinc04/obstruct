@@ -15,12 +15,13 @@ MonoBehaviour:
   areaNumber: 2
   areaName: The Desert
   gridSize: 7
-  stones: 10
+  stones: 11
   obstacles: 6
   primaryTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}
   secondaryTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}
+  starValues: 0100000003000000
   menuObject: {fileID: 4222574899941522591, guid: 878fd3672380e024d9d9dce31e5b7063,
     type: 3}
   backgroundColor: {r: 0.99215686, g: 0.972549, b: 0.7411765, a: 0}

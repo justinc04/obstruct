@@ -12,6 +12,7 @@ public class AreaObject : ScriptableObject
     public int obstacles;
     public Tile primaryTile;
     public Tile secondaryTile;
+    public int[] starValues;
     public GameObject menuObject;
     public Color backgroundColor;
 }
