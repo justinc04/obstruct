@@ -22,6 +22,8 @@ public class UnitManager : MonoBehaviour
     private int currentStones;
     [HideInInspector] public int stars;
 
+    private RaycastHit initialTouch;
+
     private void Awake()
     {
         Instance = this;
@@ -53,17 +55,24 @@ public class UnitManager : MonoBehaviour
         {
             Touch touch = Input.GetTouch(0);
 
-            if (touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Began)
             {
                 if (Physics.Raycast(cam.ScreenToWorldPoint(touch.position), cam.transform.forward, out RaycastHit hit))
                 {
-                    if (hit.transform.gameObject.GetComponent<Tile>().occupied)
+                    initialTouch = hit;
+                }
+            }
+            else if (touch.phase == TouchPhase.Ended)
+            {
+                if (Physics.Raycast(cam.ScreenToWorldPoint(touch.position), cam.transform.forward, out RaycastHit hit))
+                {
+                    if (initialTouch.transform != hit.transform|| initialTouch.transform == null || hit.transform.GetComponent<Tile>().occupied)
                     {
                         return;
                     }
 
-                    SpawnStone(hit.transform.gameObject.GetComponent<Tile>());
-                }
+                    SpawnStone(hit.transform.GetComponent<Tile>());
+                }        
             }
         }
     }
