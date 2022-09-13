@@ -7,13 +7,18 @@ using UnityEngine.Rendering;
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject areaObject;
+    public AreaObject area;
+    [SerializeField] float areaHeight;
     [SerializeField] float areaFloatDistance;
     [SerializeField] float areaFloatTime;
+    [SerializeField] Camera cam;
 
     private void Start()
     {
-        areaObject.transform.DOMoveY(areaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        GameObject menuAreaObject = Instantiate(area.menuObject, new Vector3(0, areaHeight, 0), Quaternion.identity);
+        menuAreaObject.transform.DOMoveY(areaHeight + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        cam.backgroundColor = area.backgroundColor;
+        Fade.Instance.fadeImage.color = area.backgroundColor;
     }
 
     public void OnClickPlay()

@@ -22,6 +22,6 @@ MonoBehaviour:
   secondaryTile: {fileID: 4954898030304034981, guid: d38ea59cd0cac994890898112cdafb72,
     type: 3}
   starValues: 0200000004000000
-  menuObject: {fileID: 4222574899941522591, guid: 878fd3672380e024d9d9dce31e5b7063,
+  menuObject: {fileID: 4222574899941522591, guid: 8918abf379fd9384faa9dc3ee32c5715,
     type: 3}
   backgroundColor: {r: 0.7411765, g: 0.99215686, b: 0.87058824, a: 0}

@@ -9,9 +9,9 @@ public class Fade : MonoBehaviour
 {
     public static Fade Instance;
 
+    public Image fadeImage;
     [SerializeField] float duration;
     [SerializeField] float delay;
-    [SerializeField] Image fadeImage;
 
     private void Awake()
     {
