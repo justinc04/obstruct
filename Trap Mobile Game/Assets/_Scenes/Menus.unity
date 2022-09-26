@@ -236,11 +236,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba438299ed6c7b4188e978fa065b8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  area: {fileID: 11400000, guid: 88199bed8791bf942b5888f2eb8c4456, type: 2}
   areaHeight: -1
-  areaFloatDistance: 0.07
+  areaFloatDistance: 0.05
   areaFloatTime: 1
   cam: {fileID: 171902654}
+  starProgressText: {fileID: 563775256}
 --- !u!4 &541628759
 Transform:
   m_ObjectHideFlags: 0
@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0/30
+  m_text: 0/0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a5d1a75e5dba6d141b03d3bfd13fe616, type: 2}
   m_sharedMaterial: {fileID: 5321300578323279472, guid: a5d1a75e5dba6d141b03d3bfd13fe616,

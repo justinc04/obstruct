@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88cd3d7d04e146940bb50f63ce020503, type: 3}
-  m_Name: Area 2
+  m_Name: 2
   m_EditorClassIdentifier: 
   areaNumber: 2
   areaName: The Desert
+  starsToComplete: 4
   gridSize: 7
-  stones: 11
+  stones: 12
   obstacles: 6
   primaryTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}

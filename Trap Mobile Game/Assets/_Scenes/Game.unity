@@ -969,7 +969,7 @@ Camera:
   far clip plane: 1000
   field of view: 10
   orthographic: 1
-  orthographic size: 15.3
+  orthographic size: 8.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1406,6 +1406,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   area: {fileID: 11400000, guid: 88199bed8791bf942b5888f2eb8c4456, type: 2}
+  starsEarned: 0
 --- !u!4 &1647573900
 Transform:
   m_ObjectHideFlags: 0
@@ -1696,7 +1697,6 @@ MonoBehaviour:
   cam: {fileID: 963194227}
   followCam: {fileID: 968965512}
   viewCam: {fileID: 2030800274}
-  stars: 0
 --- !u!4 &1828135817
 Transform:
   m_ObjectHideFlags: 0
@@ -1839,7 +1839,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1647573900}
   m_Lens:
     FieldOfView: 10
-    OrthographicSize: 15.3
+    OrthographicSize: 8.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

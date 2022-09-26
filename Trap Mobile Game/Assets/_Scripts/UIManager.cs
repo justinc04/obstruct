@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour
 
         await Task.Delay(200);
 
-        for (int i = 0; i < UnitManager.Instance.stars; i++)
+        for (int i = 0; i < GameManager.Instance.starsEarned; i++)
         {
             await Task.Delay(400);
             starImages[i].DOColor(starColor, .4f);
@@ -73,5 +73,4 @@ public class UIManager : MonoBehaviour
     {
         Fade.Instance.FadeToScene(0);
     }
-
 }

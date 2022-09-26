@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88cd3d7d04e146940bb50f63ce020503, type: 3}
-  m_Name: Area 1
+  m_Name: 1
   m_EditorClassIdentifier: 
   areaNumber: 1
   areaName: The Grasslands
+  starsToComplete: 3
   gridSize: 5
-  stones: 7
+  stones: 8
   obstacles: 3
   primaryTile: {fileID: 6862257690669575717, guid: 41d55356b48255f4e958678614c8435a,
     type: 3}
   secondaryTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,
     type: 3}
-  starValues: 0000000001000000
+  starValues: 0100000002000000
   menuObject: {fileID: 4222574899941522591, guid: 878fd3672380e024d9d9dce31e5b7063,
     type: 3}
   backgroundColor: {r: 0.6666667, g: 0.92941177, b: 1, a: 0}

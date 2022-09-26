@@ -3,87 +3,45 @@
     "m_SelectedPackage": {
         "deviceId": "279fbdd1",
         "name": "com.DefaultCompany.Obstruct",
-        "processId": 17724,
+        "processId": 3655,
         "exited": false
     },
     "m_SelectedPriority": 0,
     "m_KnownPackagesForSerialization": [
         {
             "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.TrapMobileGame",
-            "processId": 13214,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 15161,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 8904,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 27992,
-            "exited": true
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 6243,
-            "exited": false
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 16722,
-            "exited": false
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 18718,
-            "exited": false
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 21232,
-            "exited": false
-        },
-        {
-            "deviceId": "279fbdd1",
-            "name": "com.DefaultCompany.Obstruct",
-            "processId": 31068,
-            "exited": false
-        },
-        {
-            "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 23989,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 31598,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 25684,
-            "exited": false
+            "exited": true
         },
         {
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 17724,
+            "exited": true
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 31085,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 3655,
             "exited": false
         }
     ],

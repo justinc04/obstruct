@@ -10,7 +10,8 @@ public class GameManager : MonoBehaviour
 
     public GameState gameState;
 
-    public AreaObject area;
+    [HideInInspector] public AreaObject area;
+    [HideInInspector] public int starsEarned;
 
     private void Awake()
     {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        LoadData();
+
         ChangeState(GameState.GenerateGrid);
     }
 
@@ -48,16 +51,36 @@ public class GameManager : MonoBehaviour
             case GameState.Won:
                 UnitManager.Instance.CalculateStars();
                 UIManager.Instance.Won();
+                UpdateData();
                 break;
             case GameState.Lost:
                 UIManager.Instance.Lost();
                 break;
         }
     }
+
+    void LoadData()
+    {
+        area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("area")}");
+
+        GridManager.Instance.Initialize();
+        UnitManager.Instance.Initialize();
+    }
+
+    void UpdateData()
+    {
+        PlayerPrefs.SetInt($"stars{PlayerPrefs.GetInt("area")}", PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") + starsEarned);
+
+        if (PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") >= area.starsToComplete)
+        {
+            PlayerPrefs.SetInt("area", PlayerPrefs.GetInt("area") + 1);
+        }
+    }
 }
 
 public enum GameState
 {
+    Initialize,
     GenerateGrid,
     SpawnObstacles,
     SpawnEnemy,

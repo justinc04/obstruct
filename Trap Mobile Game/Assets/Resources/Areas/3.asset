@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 88cd3d7d04e146940bb50f63ce020503, type: 3}
-  m_Name: Area 3
+  m_Name: 3
   m_EditorClassIdentifier: 
   areaNumber: 3
   areaName: The Forest
+  starsToComplete: 5
   gridSize: 9
-  stones: 14
+  stones: 15
   obstacles: 9
   primaryTile: {fileID: 6862257690669575717, guid: f1161ac0f695cda4787dae4b1f4230d6,
     type: 3}

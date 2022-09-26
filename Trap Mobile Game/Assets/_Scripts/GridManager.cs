@@ -16,7 +16,11 @@ public class GridManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
+        Instance = this;      
+    }
+
+    public void Initialize()
+    {
         size = GameManager.Instance.area.gridSize;
         radius = size / 2;
         obstacles = GameManager.Instance.area.obstacles;

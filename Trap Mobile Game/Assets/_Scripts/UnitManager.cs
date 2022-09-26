@@ -20,13 +20,16 @@ public class UnitManager : MonoBehaviour
 
     private Enemy enemy;
     private int currentStones;
-    [HideInInspector] public int stars;
 
     private RaycastHit initialTouch;
 
     private void Awake()
     {
         Instance = this;
+    }
+
+    public void Initialize()
+    {
         stones = GameManager.Instance.area.stones;
         cam.backgroundColor = GameManager.Instance.area.backgroundColor;
     }
@@ -112,17 +115,17 @@ public class UnitManager : MonoBehaviour
 
     public void CalculateStars()
     {
-        if (currentStones <= GameManager.Instance.area.starValues[0])
+        if (currentStones >= GameManager.Instance.area.starValues[1])
         {
-            stars = 1;
+            GameManager.Instance.starsEarned = 3;
         }
-        else if (currentStones < GameManager.Instance.area.starValues[1])
+        else if (currentStones >= GameManager.Instance.area.starValues[0])
         {
-            stars = 2;
+            GameManager.Instance.starsEarned = 2;
         }
         else
         {
-            stars = 3;
+            GameManager.Instance.starsEarned = 1;
         }
     }
 }
