@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public AreaObject area;
     [HideInInspector] public int starsEarned;
+    [HideInInspector] public int gemsEarned;
 
     private void Awake()
     {
@@ -67,14 +68,17 @@ public class GameManager : MonoBehaviour
         UnitManager.Instance.Initialize();
     }
 
-    void UpdateData()
+    public void UpdateData()
     {
         PlayerPrefs.SetInt($"stars{PlayerPrefs.GetInt("area")}", PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") + starsEarned);
 
-        if (PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") >= area.starsToComplete)
+        if (PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") >= area.starsToComplete && PlayerPrefs.GetInt("area") < Resources.LoadAll("Areas").Length)
         {
-            PlayerPrefs.SetInt("area", PlayerPrefs.GetInt("area") + 1);
+            PlayerPrefs.SetInt("area", PlayerPrefs.GetInt("area") + 1);  
         }
+
+        gemsEarned = area.gemValues[starsEarned - 1];
+        PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") + gemsEarned);
     }
 }
 

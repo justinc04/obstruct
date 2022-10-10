@@ -14,6 +14,7 @@ public class AreaObject : ScriptableObject
     public Tile primaryTile;
     public Tile secondaryTile;
     public int[] starValues;
+    public int[] gemValues;
     public GameObject menuObject;
     public Color backgroundColor;
 }
