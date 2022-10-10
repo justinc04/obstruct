@@ -77,7 +77,7 @@ public class UIManager : MonoBehaviour
 
         await Task.Delay(500);
         SetGemsText(PlayerPrefs.GetInt("gems"));
-        gemsText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .3f, 1, 0);
+        gemsText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .4f, 1, 0);
 
         await Task.Delay(700);
         doubleRewardsButton.gameObject.SetActive(true);
@@ -110,12 +110,12 @@ public class UIManager : MonoBehaviour
         await Task.Delay(700);
         starsEarnedText.text = "+" + GameManager.Instance.starsEarned;
         gemsEarnedText.text = "+" + GameManager.Instance.gemsEarned;
-        starsEarnedText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .3f, 1, 0);
-        gemsEarnedText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .3f, 1, 0);
+        starsEarnedText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .4f, 1, 0);
+        gemsEarnedText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .4f, 1, 0);
 
         await Task.Delay(500);
         SetGemsText(PlayerPrefs.GetInt("gems"));
-        gemsText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .3f, 1, 0);
+        gemsText.rectTransform.DOPunchAnchorPos(15 * Vector2.up, .4f, 1, 0);
     }
 
     void OpenGameOverMenu()
@@ -127,7 +127,14 @@ public class UIManager : MonoBehaviour
 
     public void OnClickRetry()
     {
-        Fade.Instance.FadeToScene(1);
+        if (GameManager.Instance.areaUnlocked)
+        {
+            Fade.Instance.FadeToScene(0);
+        }
+        else
+        {
+            Fade.Instance.FadeToScene(1);
+        }
     }
 
     public void OnClickHome()

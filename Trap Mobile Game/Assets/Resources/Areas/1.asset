@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 1
   areaName: The Grasslands
-  starsToComplete: 3
+  starsToComplete: 100
   gridSize: 5
   stones: 8
   obstacles: 3

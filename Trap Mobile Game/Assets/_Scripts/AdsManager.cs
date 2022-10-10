@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using DG.Tweening;
 
 public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
 {
     private string adUnitID = "Rewarded_Android";
+
+    [SerializeField] CanvasGroup loadingScreen;
 
     private void Start()
     {
@@ -17,6 +20,8 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
         if (Advertisement.isInitialized)
         {
+            loadingScreen.gameObject.SetActive(true);
+            loadingScreen.DOFade(1, .3f).SetEase(Ease.Linear);
             Advertisement.Show(adUnitID, this);
         }
     }
@@ -39,6 +44,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     {
         if (placementId.Equals(adUnitID) && showCompletionState.Equals(UnityAdsShowCompletionState.COMPLETED))
         {
+            loadingScreen.gameObject.SetActive(false);
             GameManager.Instance.UpdateData();
             GameManager.Instance.starsEarned *= 2;
             GameManager.Instance.gemsEarned *= 2;

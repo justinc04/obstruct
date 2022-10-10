@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88cd3d7d04e146940bb50f63ce020503, type: 3}
+  m_Name: 4
+  m_EditorClassIdentifier: 
+  areaNumber: 4
+  areaName: The Wonderland
+  starsToComplete: 200
+  gridSize: 11
+  stones: 16
+  obstacles: 13
+  primaryTile: {fileID: 6862257690669575717, guid: c93d8fce37c284349b755191e1010829,
+    type: 3}
+  secondaryTile: {fileID: 4954898030304034981, guid: b4366fbbc95d04e4588fe3fc63250caf,
+    type: 3}
+  starValues: 0300000005000000
+  gemValues: 06000000080000000a000000
+  menuObject: {fileID: 4222574899941522591, guid: ac979e1178ed5c2429b57cfa5f2e18f1,
+    type: 3}
+  backgroundColor: {r: 0.88235295, g: 0.972549, b: 0.98039216, a: 0}
