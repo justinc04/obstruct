@@ -6,6 +6,7 @@ using UnityEngine;
 public class AreaObject : ScriptableObject
 {
     public int areaNumber;
+    public string areaName;
     public int starsToComplete;
     public int gridSize;
     public int stones;

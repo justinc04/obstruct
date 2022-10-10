@@ -14,8 +14,9 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float areaFloatTime;
     [SerializeField] Camera cam;
 
-    [SerializeField] GameObject titleMenu;
-    [SerializeField] GameObject settingsMenu;
+    [SerializeField] GameObject[] menus;
+
+    [SerializeField] TMP_Text areaNameText;
     [SerializeField] TMP_Text starProgressText;
 
     [SerializeField] TMP_Text gemsText;
@@ -27,7 +28,8 @@ public class MenuManager : MonoBehaviour
         LoadData();
 
         menuAreaObject = Instantiate(area.menuObject, new Vector3(0, areaHeight, 0), Quaternion.identity);
-        menuAreaObject.transform.DOMoveY(areaHeight + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+        areaNameText.text = area.areaName;
         starProgressText.text = PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") + "/" + area.starsToComplete;
         cam.backgroundColor = area.backgroundColor;
     }
@@ -48,30 +50,36 @@ public class MenuManager : MonoBehaviour
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();
     }
 
+    public void OnClickStartGame()
+    {
+        Fade.Instance.FadeToScene(1);
+    }
+
     public void OnClickPlay()
+    {
+        menuAreaObject.transform.DOPause();
+        menuAreaObject.transform.DOMoveY(0, .75f).SetEase(Ease.OutSine).OnComplete(() => menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo));
+    }
+
+    public void OnClickBack()
+    {
+        menuAreaObject.transform.DOPause();
+        menuAreaObject.transform.DOMoveY(areaHeight, .75f).SetEase(Ease.OutSine).OnComplete(() => menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo));
+    }
+    public void OpenMenu(GameObject menu)
     {
         if (!SplashScreen.isFinished)
         {
             return;
         }
 
-        Fade.Instance.FadeToScene(1);
-    }
+        foreach (GameObject m in menus)
+        {
+            m.SetActive(false);
+        }
 
-    public void OnClickSettings()
-    {
-        settingsMenu.SetActive(true);
-        titleMenu.SetActive(false);
-        menuAreaObject.SetActive(false);
+        menu.SetActive(true);
     }
-
-    public void OnClickBack()
-    {
-        titleMenu.SetActive(true);
-        settingsMenu.SetActive(false);
-        menuAreaObject.SetActive(true);
-    }
-
     public void OnClickReset()
     {
         PlayerPrefs.DeleteAll();
