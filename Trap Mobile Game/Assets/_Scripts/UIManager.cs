@@ -16,8 +16,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image[] starImages;
     [SerializeField] Color starColor;
 
-    [SerializeField] Button retryButton;
-    [SerializeField] Sprite nextImage;
+    [SerializeField] GameObject retryImage;
+    [SerializeField] GameObject nextImage;
 
     [SerializeField] TMP_Text starsEarnedText;
     [SerializeField] CanvasGroup starsEarnedPanel;
@@ -27,6 +27,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] TMP_Text gemsEarnedText;
 
     [SerializeField] CanvasGroup doubleRewardsButton;
+    [SerializeField] CanvasGroup buttonsPanel;
 
     private void Awake()
     {
@@ -55,7 +56,8 @@ public class UIManager : MonoBehaviour
         await Task.Delay(1300);
 
         OpenGameOverMenu();
-        retryButton.image.sprite = nextImage;
+        retryImage.SetActive(false);
+        nextImage.SetActive(true);
 
         await Task.Delay(400);
 
@@ -82,14 +84,16 @@ public class UIManager : MonoBehaviour
         await Task.Delay(700);
         doubleRewardsButton.gameObject.SetActive(true);
         doubleRewardsButton.DOFade(1, .4f).SetEase(Ease.Linear);
-
-        await Task.Delay(1500);
+        buttonsPanel.gameObject.SetActive(true);
+        buttonsPanel.DOFade(1, .4f).SetEase(Ease.Linear);
     }
 
     public async void Lost()
     {
         await Task.Delay(700);
+        stonesText.DOFade(0, .5f).SetEase(Ease.Linear);
 
+        await Task.Delay(250);
         outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
         outOfStonesText.DOFade(1, .5f).SetEase(Ease.Linear);
 
@@ -101,6 +105,10 @@ public class UIManager : MonoBehaviour
         await Task.Delay(1000);
 
         OpenGameOverMenu();
+
+        await Task.Delay(700);
+        buttonsPanel.gameObject.SetActive(true);
+        buttonsPanel.DOFade(1, .4f).SetEase(Ease.Linear);
     }
 
     public async void DoubleReward()

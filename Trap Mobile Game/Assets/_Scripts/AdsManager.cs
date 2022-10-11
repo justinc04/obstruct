@@ -21,7 +21,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         if (Advertisement.isInitialized)
         {
             loadingScreen.gameObject.SetActive(true);
-            loadingScreen.DOFade(1, .3f).SetEase(Ease.Linear);
+            loadingScreen.DOFade(1, .2f).SetEase(Ease.Linear);
             Advertisement.Show(adUnitID, this);
         }
     }

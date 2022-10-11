@@ -343,11 +343,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickStoreSettings
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1488336813}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1488336815}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -477,23 +477,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickBackAreaSelect
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1441085385}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 541628758}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OnClickBack
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 1441085387}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -726,7 +714,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -845,7 +833,7 @@ GameObject:
   - component: {fileID: 372215772}
   - component: {fileID: 372215771}
   m_Layer: 5
-  m_Name: Shop Image
+  m_Name: Store Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -868,8 +856,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -6, y: 0}
-  m_SizeDelta: {x: -10, y: -10}
+  m_AnchoredPosition: {x: -5.0999985, y: -0.0000076293945}
+  m_SizeDelta: {x: -15.1652, y: -15.1652}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &372215771
 MonoBehaviour:
@@ -1074,15 +1062,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ba438299ed6c7b4188e978fa065b8f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  areaHeight: 1
+  areaHeight: 1.2
   areaFloatDistance: 0.05
   areaFloatTime: 1
   cam: {fileID: 171902654}
   menus:
-  - {fileID: 1441085385}
-  - {fileID: 652074660}
-  - {fileID: 1488336813}
-  - {fileID: 1371576972}
+  - {fileID: 1441085387}
+  - {fileID: 652074662}
+  - {fileID: 1488336815}
+  - {fileID: 1371576974}
   areaNameText: {fileID: 1386874080}
   starProgressText: {fileID: 563775256}
   gemsText: {fileID: 401129651}
@@ -1322,6 +1310,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 652074661}
+  - component: {fileID: 652074662}
   m_Layer: 5
   m_Name: Area Select Menu
   m_TagString: Untagged
@@ -1354,6 +1343,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &652074662
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 652074660}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &766260112
 GameObject:
   m_ObjectHideFlags: 0
@@ -1610,11 +1611,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickBackStoreSettings
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1441085385}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1441085387}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -1887,23 +1888,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickPlay
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 652074660}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 541628758}
-        m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OnClickPlay
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 652074662}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2291,11 +2280,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickStoreSettings
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1371576972}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1371576974}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -2491,8 +2480,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.3000183, y: 1.8999634}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -2.503502, y: 2.503502}
+  m_SizeDelta: {x: -5.007, y: -5.007}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1369975841
 MonoBehaviour:
@@ -2541,6 +2530,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1371576973}
+  - component: {fileID: 1371576974}
   m_Layer: 5
   m_Name: Settings Menu
   m_TagString: Untagged
@@ -2570,6 +2560,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1371576974
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1371576972}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1386874078
 GameObject:
   m_ObjectHideFlags: 0
@@ -2605,7 +2607,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 500}
+  m_AnchoredPosition: {x: 0, y: 520}
   m_SizeDelta: {x: 800, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1386874080
@@ -2848,6 +2850,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1441085386}
+  - component: {fileID: 1441085387}
   m_Layer: 5
   m_Name: Home Menu
   m_TagString: Untagged
@@ -2879,6 +2882,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1441085387
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441085385}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1486420532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3024,6 +3039,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1488336814}
+  - component: {fileID: 1488336815}
   m_Layer: 5
   m_Name: Store Menu
   m_TagString: Untagged
@@ -3052,6 +3068,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &1488336815
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488336813}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1500156912
 GameObject:
   m_ObjectHideFlags: 0
@@ -3290,11 +3318,11 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 541628758}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OpenMenu
+        m_MethodName: OnClickBackStoreSettings
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1441085385}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_ObjectArgument: {fileID: 1441085387}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.CanvasGroup, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3529,8 +3557,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 7.7, y: 0}
+  m_SizeDelta: {x: -92.7141, y: -92.7141}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2140372461
 MonoBehaviour:
@@ -3552,7 +3580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b2ddcb6391d76c84fb138fa491365a9d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 379b0b30b86bf27479b94bd2fb4f3824, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

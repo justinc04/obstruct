@@ -17,7 +17,7 @@ MonoBehaviour:
   starsToComplete: 100
   gridSize: 5
   stones: 8
-  obstacles: 3
+  obstacles: 4
   primaryTile: {fileID: 6862257690669575717, guid: 41d55356b48255f4e958678614c8435a,
     type: 3}
   secondaryTile: {fileID: 4954898030304034981, guid: db7b7282a4aae88498ec29100655c40f,

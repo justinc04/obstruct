@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 using TMPro;
 using DG.Tweening;
@@ -14,7 +15,7 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float areaFloatTime;
     [SerializeField] Camera cam;
 
-    [SerializeField] GameObject[] menus;
+    [SerializeField] CanvasGroup[] menus;
 
     [SerializeField] TMP_Text areaNameText;
     [SerializeField] TMP_Text starProgressText;
@@ -50,36 +51,73 @@ public class MenuManager : MonoBehaviour
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();
     }
 
-    public void OnClickStartGame()
-    {
-        Fade.Instance.FadeToScene(1);
-    }
-
-    public void OnClickPlay()
-    {
-        menuAreaObject.transform.DOPause();
-        menuAreaObject.transform.DOMoveY(0, .75f).SetEase(Ease.OutSine).OnComplete(() => menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo));
-    }
-
-    public void OnClickBack()
-    {
-        menuAreaObject.transform.DOPause();
-        menuAreaObject.transform.DOMoveY(areaHeight, .75f).SetEase(Ease.OutSine).OnComplete(() => menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo));
-    }
-    public void OpenMenu(GameObject menu)
+    public async void OnClickPlay(CanvasGroup menu)
     {
         if (!SplashScreen.isFinished)
         {
             return;
         }
 
-        foreach (GameObject m in menus)
+        OpenMenu(menu);
+        menuAreaObject.transform.DOPause();
+        menuAreaObject.transform.DOMoveY(0, .6f).SetEase(Ease.OutSine);
+        cam.DOOrthoSize(6, .6f);
+
+        await Task.Delay(600);
+        menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    public void OnClickStoreSettings(CanvasGroup menu)
+    {
+        if (!SplashScreen.isFinished)
         {
-            m.SetActive(false);
+            return;
         }
 
-        menu.SetActive(true);
+        OpenMenu(menu);
+        menuAreaObject.transform.DOPause();
+        menuAreaObject.transform.DOScale(Vector3.zero, .4f).SetEase(Ease.InSine);
     }
+
+    public async void OnClickBackAreaSelect(CanvasGroup menu)
+    {
+        OpenMenu(menu);
+        menuAreaObject.transform.DOPause();
+        menuAreaObject.transform.DOMoveY(areaHeight, .6f).SetEase(Ease.OutSine);
+        cam.DOOrthoSize(7, .6f);
+
+        await Task.Delay(600);
+        menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    public async void OnClickBackStoreSettings(CanvasGroup menu)
+    {
+        OpenMenu(menu);
+
+        await Task.Delay(200);
+        menuAreaObject.transform.DOScale(Vector3.one, .4f).SetEase(Ease.OutSine);
+
+        await Task.Delay(400);
+        menuAreaObject.transform.DOMoveY(menuAreaObject.transform.position.y + areaFloatDistance, areaFloatTime).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+    }
+
+    async void OpenMenu(CanvasGroup menu)
+    {
+        foreach (CanvasGroup m in menus)
+        {
+            m.DOFade(0, .3f).SetEase(Ease.Linear).OnComplete(() => m.gameObject.SetActive(false));
+        }
+
+        await Task.Delay(300);
+        menu.gameObject.SetActive(true);
+        menu.DOFade(1, .3f).SetEase(Ease.Linear);
+    }
+
+    public void OnClickStartGame()
+    {
+        Fade.Instance.FadeToScene(1);
+    }
+
     public void OnClickReset()
     {
         PlayerPrefs.DeleteAll();
