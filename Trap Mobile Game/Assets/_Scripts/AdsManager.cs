@@ -34,7 +34,10 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) { }
 
-    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message) { }
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message) 
+    {
+        loadingScreen.gameObject.SetActive(false);
+    }
 
     public void OnUnityAdsShowStart(string placementId) { }
 

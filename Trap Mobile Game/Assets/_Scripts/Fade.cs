@@ -38,7 +38,7 @@ public class Fade : MonoBehaviour
     public void FadeToScene(int scene)
     {
         fadeImage.enabled = true;
-        fadeImage.color = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("area")}").backgroundColor;
+        fadeImage.color = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area")}").backgroundColor;
         fadeImage.DOPause();
         fadeImage.DOFade(1, duration).SetEase(Ease.Linear).OnComplete(() => SceneManager.LoadScene(scene));
     }  

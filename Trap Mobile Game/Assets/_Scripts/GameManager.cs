@@ -63,7 +63,7 @@ public class GameManager : MonoBehaviour
 
     void LoadData()
     {
-        area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("area")}");
+        area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area")}");
 
         GridManager.Instance.Initialize();
         UnitManager.Instance.Initialize();
@@ -71,11 +71,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateData()
     {
-        PlayerPrefs.SetInt($"stars{PlayerPrefs.GetInt("area")}", PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") + starsEarned);
+        PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + starsEarned);
 
-        if (PlayerPrefs.GetInt($"stars{PlayerPrefs.GetInt("area")}") >= area.starsToComplete && PlayerPrefs.GetInt("area") < Resources.LoadAll("Areas").Length)
+        if (PlayerPrefs.GetInt("area") < Resources.LoadAll("Areas").Length && PlayerPrefs.GetInt("stars") >= Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area") + 1}").starsToUnlock)
         {
-            PlayerPrefs.SetInt("area", PlayerPrefs.GetInt("area") + 1);
+            PlayerPrefs.SetInt("unlocked area", PlayerPrefs.GetInt("unlocked area") + 1);
+            PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("unlocked area"));
             areaUnlocked = true;
         }
 

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 3
   areaName: The Forest
-  starsToComplete: 150
+  starsToUnlock: 120
   gridSize: 9
   stones: 15
   obstacles: 9
