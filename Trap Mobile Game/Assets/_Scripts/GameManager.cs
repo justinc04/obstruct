@@ -73,7 +73,7 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + starsEarned);
 
-        if (PlayerPrefs.GetInt("area") < Resources.LoadAll("Areas").Length && PlayerPrefs.GetInt("stars") >= Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area") + 1}").starsToUnlock)
+        if (PlayerPrefs.GetInt("unlocked area") < Resources.LoadAll("Areas").Length && PlayerPrefs.GetInt("stars") >= Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("unlocked area") + 1}").starsToUnlock)
         {
             PlayerPrefs.SetInt("unlocked area", PlayerPrefs.GetInt("unlocked area") + 1);
             PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("unlocked area"));

@@ -19,6 +19,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] GameObject retryImage;
     [SerializeField] GameObject nextImage;
 
+    [SerializeField] TMP_Text starsText;
     [SerializeField] TMP_Text starsEarnedText;
     [SerializeField] CanvasGroup starsEarnedPanel;
 
@@ -38,17 +39,13 @@ public class UIManager : MonoBehaviour
     {
         gameOverMenu.gameObject.SetActive(false);
         gameOverMenu.alpha = 0;
-        SetGemsText(PlayerPrefs.GetInt("gems"));
+        starsText.text = PlayerPrefs.GetInt("stars").ToString();
+        gemsText.text = PlayerPrefs.GetInt("gems").ToString();
     }
 
     public void SetStonesText(int value)
     {
         stonesText.text = value.ToString();
-    }
-
-    void SetGemsText(int value)
-    {
-        gemsText.text = value.ToString();   
     }
 
     public async void Won()
@@ -78,7 +75,9 @@ public class UIManager : MonoBehaviour
         gemsEarnedPanel.DOFade(1, .4f).SetEase(Ease.Linear);
 
         await Task.Delay(500);
-        SetGemsText(PlayerPrefs.GetInt("gems"));
+        starsText.text = PlayerPrefs.GetInt("stars").ToString();
+        starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+        gemsText.text = PlayerPrefs.GetInt("gems").ToString();
         gemsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
 
         await Task.Delay(700);
@@ -122,7 +121,9 @@ public class UIManager : MonoBehaviour
         gemsEarnedText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
 
         await Task.Delay(500);
-        SetGemsText(PlayerPrefs.GetInt("gems"));
+        starsText.text = PlayerPrefs.GetInt("stars").ToString();
+        starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+        gemsText.text = PlayerPrefs.GetInt("gems").ToString();
         gemsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
     }
 

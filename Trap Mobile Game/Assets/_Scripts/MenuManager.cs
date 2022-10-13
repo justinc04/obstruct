@@ -15,25 +15,37 @@ public class MenuManager : MonoBehaviour
     [SerializeField] float areaFloatTime;
     [SerializeField] Transform camPivot;
     [SerializeField] Camera cam;
+    [SerializeField] Light lightSource;
 
     [SerializeField] CanvasGroup[] menus;
     [SerializeField] CanvasGroup areaSelectMenu;
     [SerializeField] CanvasGroup startGameButton;
+    [SerializeField] CanvasGroup unlockAtPanel;
+    [SerializeField] TMP_Text unlockAtText;
+    [SerializeField] Button leftButton;
+    [SerializeField] Button rightButton;
 
     [SerializeField] TMP_Text areaNameText;
     [SerializeField] TMP_Text areaSizeText;
-
+    [SerializeField] TMP_Text starsText;
     [SerializeField] TMP_Text gemsText;
 
     [SerializeField] float areaSelectSensitivity;
     [SerializeField] GameObject[] menuAreaObjectPrefabs;
     [SerializeField] float menuAreaObjectDistance;
     private List<GameObject> menuAreaObjects = new List<GameObject>();
-    private float initialCamPos;
+    private float initialTouchPos;
 
     private void Start()
     {
         LoadData();
+
+        if (PlayerPrefs.GetInt("selected area") > PlayerPrefs.GetInt("unlocked area"))
+        {
+            PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("unlocked area"));
+        }
+
+        ChangeArea();
 
         for (int i = 0; i < menuAreaObjectPrefabs.Length; i++)
         {
@@ -69,15 +81,15 @@ public class MenuManager : MonoBehaviour
             if (touch.phase == TouchPhase.Began)
             {
                 cam.transform.DOPause();
-                initialCamPos = cam.transform.position.x;
+                initialTouchPos = touch.position.x;
             }
             else if (touch.phase == TouchPhase.Ended)
             {
                 cam.transform.DOLocalMoveX(0, .5f).SetEase(Ease.OutSine);
 
-                if (Mathf.Abs(cam.transform.position.x - initialCamPos) > .3f)
+                if (Mathf.Abs(initialTouchPos - touch.position.x) > 120)
                 {
-                    int direction = (int)Mathf.Sign(cam.transform.position.x - initialCamPos);
+                    int direction = (int)Mathf.Sign(initialTouchPos - touch.position.x);
 
                     if (PlayerPrefs.GetInt("selected area") + direction == 0 || PlayerPrefs.GetInt("selected area") + direction == menuAreaObjectPrefabs.Length + 1)
                     {
@@ -85,9 +97,6 @@ public class MenuManager : MonoBehaviour
                     }
 
                     PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("selected area") + direction);
-                    Vector3 newPos = new Vector3((PlayerPrefs.GetInt("selected area") - 1) * menuAreaObjectDistance, 0, -(PlayerPrefs.GetInt("selected area") - 1) * menuAreaObjectDistance);
-                    camPivot.DOMove(newPos, .5f).SetEase(Ease.OutSine);
-
                     ChangeArea();
                 }
             }
@@ -116,32 +125,52 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("gems", 0);
         }
 
-        area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area", 1)}");
+        area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area")}");
+        starsText.text = PlayerPrefs.GetInt("stars").ToString();
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();
     }
 
     async void ChangeArea()
     {
+        Vector3 newPos = new Vector3((PlayerPrefs.GetInt("selected area") - 1) * menuAreaObjectDistance, 0, -(PlayerPrefs.GetInt("selected area") - 1) * menuAreaObjectDistance);
+        camPivot.DOMove(newPos, .5f).SetEase(Ease.OutSine);
         area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area")}");
-        areaNameText.DOFade(0, .2f).SetEase(Ease.Linear);
-        areaSizeText.DOFade(0, .2f).SetEase(Ease.Linear);
-        startGameButton.DOFade(0, .2f).SetEase(Ease.Linear);
-        cam.DOColor(area.backgroundColor, .4f).SetEase(Ease.Linear);
+        areaNameText.DOFade(0, .15f).SetEase(Ease.Linear);
+        areaSizeText.DOFade(0, .15f).SetEase(Ease.Linear);
+        unlockAtPanel.DOFade(0, .15f).SetEase(Ease.Linear);
+        cam.DOColor(area.backgroundColor, .3f).SetEase(Ease.Linear);
 
-        await Task.Delay(200);
+        await Task.Delay(150);
         areaNameText.text = area.areaName;
         areaSizeText.text = area.gridSize + "x" + area.gridSize;
-        areaNameText.DOFade(1, .2f).SetEase(Ease.Linear);
-        areaSizeText.DOFade(1, .2f).SetEase(Ease.Linear);
+        areaNameText.DOFade(1, .15f).SetEase(Ease.Linear);
+        areaSizeText.DOFade(1, .15f).SetEase(Ease.Linear);
 
-        if (PlayerPrefs.GetInt("selected area") <= PlayerPrefs.GetInt("unlocked area"))
+        if (PlayerPrefs.GetInt("selected area") > PlayerPrefs.GetInt("unlocked area"))
         {
-            startGameButton.gameObject.SetActive(true);
-            startGameButton.DOFade(1, .2f).SetEase(Ease.Linear);
+            unlockAtText.text = "Unlock at " + area.starsToUnlock;
+            startGameButton.DOFade(0, .15f).SetEase(Ease.Linear);
+            unlockAtPanel.DOFade(1, .15f).SetEase(Ease.Linear);
+            lightSource.DOIntensity(.6f, .15f).SetEase(Ease.Linear);
         }
         else
         {
-            startGameButton.gameObject.SetActive(false);
+            startGameButton.DOFade(1, .2f).SetEase(Ease.Linear);
+            lightSource.DOIntensity(1, .2f).SetEase(Ease.Linear);
+        }
+
+        if (PlayerPrefs.GetInt("selected area") == 1)
+        {
+            leftButton.interactable = false;
+        }
+        else if (PlayerPrefs.GetInt("selected area") == menuAreaObjectPrefabs.Length)
+        {
+            rightButton.interactable = false;
+        }
+        else
+        {
+            leftButton.interactable = true;
+            rightButton.interactable = true;
         }
     }
 
@@ -153,7 +182,7 @@ public class MenuManager : MonoBehaviour
         }
 
         OpenMenu(menu);
-        cam.transform.DOLocalMoveY(.25f, .6f).SetEase(Ease.OutSine);
+        cam.transform.DOLocalMoveY(.1f, .6f).SetEase(Ease.OutSine);
         cam.DOOrthoSize(6, .6f);
 
         foreach (GameObject areaObject in menuAreaObjects)
@@ -167,7 +196,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public void OnClickStoreSettings(CanvasGroup menu)
+    public void OnClickShopSettings(CanvasGroup menu)
     {
         if (!SplashScreen.isFinished)
         {
@@ -181,8 +210,14 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickBackAreaSelect(CanvasGroup menu)
     {
+        if (PlayerPrefs.GetInt("selected area") > PlayerPrefs.GetInt("unlocked area"))
+        {
+            PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("unlocked area"));
+            ChangeArea();
+        }
+
         OpenMenu(menu);
-        cam.transform.DOLocalMoveY(-1.25f, .6f).SetEase(Ease.OutSine);
+        cam.transform.DOLocalMoveY(-1.2f, .6f).SetEase(Ease.OutSine);
         cam.DOOrthoSize(7, .6f);
         cam.transform.DOLocalMoveX(0, .5f).SetEase(Ease.OutSine);
 
@@ -197,7 +232,7 @@ public class MenuManager : MonoBehaviour
         }
     }
 
-    public async void OnClickBackStoreSettings(CanvasGroup menu)
+    public async void OnClickBackShopSettings(CanvasGroup menu)
     {
         OpenMenu(menu);
 
@@ -222,8 +257,25 @@ public class MenuManager : MonoBehaviour
         menu.DOFade(1, .3f).SetEase(Ease.Linear);
     }
 
+    public void OnClickArrow(int direction)
+    {
+        if (PlayerPrefs.GetInt("selected area") + direction == 0 || PlayerPrefs.GetInt("selected area") + direction == menuAreaObjectPrefabs.Length + 1)
+        {
+            return;
+        }
+
+        PlayerPrefs.SetInt("selected area", PlayerPrefs.GetInt("selected area") + direction);
+        ChangeArea();
+    }
+
     public void OnClickStartGame()
     {
+        if (PlayerPrefs.GetInt("selected area") > PlayerPrefs.GetInt("unlocked area"))
+        {
+            return;
+        }
+
+        areaSelectMenu.interactable = false;
         Fade.Instance.FadeToScene(1);
     }
 
