@@ -289,10 +289,4 @@ public class MenuManager : MonoBehaviour
         areaSelectMenu.interactable = false;
         Fade.Instance.FadeToScene(1);
     }
-
-    public void OnClickReset()
-    {
-        PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
 }
