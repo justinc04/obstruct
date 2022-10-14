@@ -173,10 +173,12 @@ public class MenuManager : MonoBehaviour
         if (PlayerPrefs.GetInt("selected area") == 1)
         {
             leftButton.interactable = false;
+            rightButton.interactable = true;
         }
         else if (PlayerPrefs.GetInt("selected area") == menuAreaObjectPrefabs.Length)
         {
             rightButton.interactable = false;
+            leftButton.interactable = true;
         }
         else
         {
