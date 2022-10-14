@@ -52,10 +52,11 @@ public class GameManager : MonoBehaviour
                 break;
             case GameState.Won:
                 UnitManager.Instance.CalculateStars();
-                UIManager.Instance.Won();
                 UpdateData();
+                UIManager.Instance.Won();
                 break;
             case GameState.Lost:
+                UpdateData();
                 UIManager.Instance.Lost();
                 break;
         }
@@ -80,8 +81,11 @@ public class GameManager : MonoBehaviour
             areaUnlocked = true;
         }
 
-        gemsEarned = area.gemValues[starsEarned - 1];
-        PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") + gemsEarned);
+        if (PlayerPrefs.GetInt("gems") + area.gemValues[starsEarned] >= 0)
+        {
+            gemsEarned = area.gemValues[starsEarned];
+            PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") + gemsEarned);
+        }
     }
 }
 

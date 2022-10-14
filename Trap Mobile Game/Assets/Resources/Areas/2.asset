@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 2
   areaName: The Desert
-  starsToUnlock: 5
+  starsToUnlock: 4
   gridSize: 7
   stones: 12
   obstacles: 6
@@ -23,7 +23,7 @@ MonoBehaviour:
   secondaryTile: {fileID: 6862257690669575717, guid: ef0c2d9e8a8d4594795d0cf1ad4f3837,
     type: 3}
   starValues: 0100000003000000
-  gemValues: 030000000400000005000000
+  gemValues: ffffffff030000000400000005000000
   menuObject: {fileID: 4222574899941522591, guid: d2ebe7b1b955c8c458885677e87484ef,
     type: 3}
   backgroundColor: {r: 0.99215686, g: 0.972549, b: 0.7411765, a: 0}

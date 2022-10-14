@@ -125,6 +125,17 @@ public class MenuManager : MonoBehaviour
             PlayerPrefs.SetInt("gems", 0);
         }
 
+        if (!PlayerPrefs.HasKey("1"))
+        {
+            PlayerPrefs.SetInt("1", 2);
+            PlayerPrefs.SetInt("stone", 1);
+
+            for (int i = 2; i <= Resources.LoadAll("Stones").Length; i++)
+            {
+                PlayerPrefs.SetInt($"{i}", 0);
+            }
+        }
+
         area = Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("selected area")}");
         starsText.text = PlayerPrefs.GetInt("stars").ToString();
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();

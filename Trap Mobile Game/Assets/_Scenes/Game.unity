@@ -159,7 +159,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.5, y: 200}
+  m_AnchoredPosition: {x: -70, y: 200}
   m_SizeDelta: {x: 280, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &23057937
@@ -1866,7 +1866,7 @@ Camera:
   far clip plane: 1000
   field of view: 10
   orthographic: 1
-  orthographic size: 8.5
+  orthographic size: 18.7
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2320,7 +2320,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -62.5, y: 80}
+  m_AnchoredPosition: {x: -70, y: 80}
   m_SizeDelta: {x: 280, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1287396502
@@ -3562,6 +3562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreen: {fileID: 1687430708}
+  watchAdButton: {fileID: 26787244}
 --- !u!4 &1813537058
 Transform:
   m_ObjectHideFlags: 0
@@ -3607,8 +3608,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 2363103876435677721, guid: 97c68519edbec7c4e9f7806ab9b698af,
-    type: 3}
-  stonePrefab: {fileID: 919132149155446097, guid: 22c0d16f91a41e140aa9350486044ab9,
     type: 3}
   cam: {fileID: 963194227}
   followCam: {fileID: 968965512}
@@ -3967,7 +3966,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1647573900}
   m_Lens:
     FieldOfView: 10
-    OrthographicSize: 8.5
+    OrthographicSize: 18.7
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0

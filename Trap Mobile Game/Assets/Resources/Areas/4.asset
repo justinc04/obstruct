@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 4
   areaName: The Wonderland
-  starsToUnlock: 12
+  starsToUnlock: 6
   gridSize: 11
   stones: 16
   obstacles: 13
@@ -23,7 +23,7 @@ MonoBehaviour:
   secondaryTile: {fileID: 4954898030304034981, guid: b4366fbbc95d04e4588fe3fc63250caf,
     type: 3}
   starValues: 0300000005000000
-  gemValues: 06000000080000000a000000
+  gemValues: feffffff06000000080000000a000000
   menuObject: {fileID: 4222574899941522591, guid: ac979e1178ed5c2429b57cfa5f2e18f1,
     type: 3}
   backgroundColor: {r: 0.88235295, g: 0.972549, b: 0.98039216, a: 0}

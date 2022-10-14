@@ -9,11 +9,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
     private string adUnitID = "Rewarded_Android";
 
     [SerializeField] CanvasGroup loadingScreen;
+    [SerializeField] GameObject watchAdButton;
 
     private void Start()
     {
         Advertisement.Initialize("4963581", true, this);
-        Advertisement.Load(adUnitID, this);
     }
 
     public void PlayRewardedAd()
@@ -22,7 +22,11 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
         {
             loadingScreen.gameObject.SetActive(true);
             loadingScreen.DOFade(1, .2f).SetEase(Ease.Linear);
-            Advertisement.Show(adUnitID, this);
+            Advertisement.Load(adUnitID, this);
+        }
+        else
+        {
+            watchAdButton.SetActive(false);
         }
     }
 
@@ -30,13 +34,21 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     public void OnInitializationFailed(UnityAdsInitializationError error, string message) { }
 
-    public void OnUnityAdsAdLoaded(string placementId) { }
+    public void OnUnityAdsAdLoaded(string placementId) 
+    {
+        Advertisement.Show(adUnitID, this);
+    }
 
-    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) { }
+    public void OnUnityAdsFailedToLoad(string placementId, UnityAdsLoadError error, string message) 
+    {
+        loadingScreen.gameObject.SetActive(false);
+        watchAdButton.SetActive(false);
+    }
 
     public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message) 
     {
         loadingScreen.gameObject.SetActive(false);
+        watchAdButton.SetActive(false);
     }
 
     public void OnUnityAdsShowStart(string placementId) { }

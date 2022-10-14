@@ -12,12 +12,12 @@ public class UnitManager : MonoBehaviour
     private int stones;
 
     [SerializeField] Enemy enemyPrefab;
-    [SerializeField] GameObject stonePrefab;
 
     [SerializeField] Camera cam;
     [SerializeField] CinemachineVirtualCamera followCam;
     [SerializeField] CinemachineVirtualCamera viewCam;
 
+    private GameObject stonePrefab;
     private Enemy enemy;
     private int currentStones;
 
@@ -39,6 +39,7 @@ public class UnitManager : MonoBehaviour
         currentStones = stones;
         UIManager.Instance.SetStonesText(currentStones);
         viewCam.m_Lens.OrthographicSize = GameManager.Instance.area.gridSize * 1.7f;
+        stonePrefab = Resources.Load<GameObject>($"Stones/{PlayerPrefs.GetInt("stone")}");
     }
 
     private void Update()
