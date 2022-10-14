@@ -16,7 +16,7 @@ MonoBehaviour:
   areaName: The Forest
   starsToUnlock: 5
   gridSize: 9
-  stones: 15
+  stones: 14
   obstacles: 9
   primaryTile: {fileID: 6862257690669575717, guid: f1161ac0f695cda4787dae4b1f4230d6,
     type: 3}

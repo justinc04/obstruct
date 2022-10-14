@@ -106,10 +106,10 @@ public class UIManager : MonoBehaviour
         OpenGameOverMenu();
 
         if (GameManager.Instance.gemsEarned != 0)
-        {
+        {            
             await Task.Delay(700);
             gemsEarnedText.text = GameManager.Instance.gemsEarned.ToString();
-            gemsEarnedPanel.transform.position = starsEarnedPanel.transform.position;
+            gemsEarnedPanel.transform.position = starsEarnedPanel.transform.position - 15 * Vector3.one;
             gemsEarnedPanel.transform.DOLocalMoveY(gemsEarnedPanel.transform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
             gemsEarnedPanel.DOFade(1, .4f).SetEase(Ease.Linear);
 

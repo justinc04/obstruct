@@ -84,8 +84,13 @@ public class GameManager : MonoBehaviour
         if (PlayerPrefs.GetInt("gems") + area.gemValues[starsEarned] >= 0)
         {
             gemsEarned = area.gemValues[starsEarned];
-            PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") + gemsEarned);
         }
+        else
+        {
+            gemsEarned = -PlayerPrefs.GetInt("gems");
+        }
+
+        PlayerPrefs.SetInt("gems", PlayerPrefs.GetInt("gems") + gemsEarned);
     }
 }
 
