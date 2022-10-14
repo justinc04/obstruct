@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 2
   areaName: The Desert
-  starsToUnlock: 125
+  starsToUnlock: 75
   gridSize: 7
   stones: 12
   obstacles: 6

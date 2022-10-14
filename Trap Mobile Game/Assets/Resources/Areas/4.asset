@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   areaNumber: 4
   areaName: The Wonderland
-  starsToUnlock: 375
+  starsToUnlock: 225
   gridSize: 11
   stones: 16
   obstacles: 13
