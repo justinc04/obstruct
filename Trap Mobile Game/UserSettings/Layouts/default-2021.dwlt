@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1280
     height: 629.3334
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Hierarchy
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 88
+  controlID: 22
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 89
+  controlID: 23
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -504,9 +504,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 431.4194, y: 68.18669, z: 10.191957}
+    m_Target: {x: 371.09857, y: 188.34189, z: 12.614519}
     speed: 2
-    m_Value: {x: 446.79074, y: 59.0661, z: 9.99618}
+    m_Value: {x: 373.131, y: 184.29337, z: 12.532893}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -557,9 +557,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 415.4846
+    m_Target: 173.22838
     speed: 2
-    m_Value: 435.0624
+    m_Value: 181.39098
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -618,7 +618,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 9ce7ffffe8e7fffff6e7ffff20e9ffff70eaffffbceaffffcaeafffff4ebffff58edffffa4edffffb2edffffdceeffff32f0ffff7ef0ffff50f2ffff7ef3ffff18fbffff805e0000005f0000805f000022860000
+      m_ExpandedIDs: 7cefffffc8efffff96f1ffffc0f2ffff94f5ffff86f7ffff04f9ffff18fbffffea68000026690000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -777,22 +777,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Resources/Areas
+    - Assets/_Scenes
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Resources/Areas
+  - Assets/_Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\justi\Desktop\Unity Projects\trap-mobile-game\Trap
     Mobile Game
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 256.99854}
-    m_SelectedIDs: 24660000
-    m_LastClickedID: 26148
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 10660000
+    m_LastClickedID: 26128
     m_ExpandedIDs: 00000000fa650000fc650000fe650000006600000266000004660000066600000866000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0

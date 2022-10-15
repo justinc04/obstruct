@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public AreaObject area;
     [HideInInspector] public int starsEarned;
     [HideInInspector] public int gemsEarned;
+    [HideInInspector] public int bonusGems;
     [HideInInspector] public bool areaUnlocked;
 
     private void Awake()
@@ -72,7 +73,10 @@ public class GameManager : MonoBehaviour
 
     public void UpdateData()
     {
-        PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + starsEarned);
+        if (PlayerPrefs.GetInt("selected area") == PlayerPrefs.GetInt("unlocked area"))
+        {
+            PlayerPrefs.SetInt("stars", PlayerPrefs.GetInt("stars") + starsEarned);
+        }
 
         if (PlayerPrefs.GetInt("unlocked area") < Resources.LoadAll("Areas").Length && PlayerPrefs.GetInt("stars") >= Resources.Load<AreaObject>($"Areas/{PlayerPrefs.GetInt("unlocked area") + 1}").starsToUnlock)
         {
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("gems") + area.gemValues[starsEarned] >= 0)
         {
-            gemsEarned = area.gemValues[starsEarned];
+            gemsEarned = area.gemValues[starsEarned] + bonusGems;
         }
         else
         {

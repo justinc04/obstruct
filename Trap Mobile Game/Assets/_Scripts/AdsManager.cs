@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Advertisements;
+using TMPro;
 using DG.Tweening;
 
 public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnityAdsLoadListener, IUnityAdsShowListener
@@ -13,7 +14,7 @@ public class AdsManager : MonoBehaviour, IUnityAdsInitializationListener, IUnity
 
     private void Start()
     {
-        Advertisement.Initialize("4963581", true, this);
+        Advertisement.Initialize("4963581", false, this);
     }
 
     public void PlayRewardedAd()

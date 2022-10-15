@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] CanvasGroup gameOverMenu;
     [SerializeField] Image[] starImages;
     [SerializeField] Color starColor;
+    [SerializeField] Color noCountStarColor;
 
     [SerializeField] GameObject retryImage;
     [SerializeField] GameObject nextImage;
@@ -29,6 +30,7 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] CanvasGroup doubleRewardsButton;
     [SerializeField] CanvasGroup buttonsPanel;
+    [SerializeField] TMP_Text rewardGrantedText;
 
     private void Awake()
     {
@@ -57,17 +59,25 @@ public class UIManager : MonoBehaviour
         nextImage.SetActive(true);
 
         await Task.Delay(400);
+        Color color = PlayerPrefs.GetInt("selected area") < PlayerPrefs.GetInt("unlocked area") ? noCountStarColor : starColor;
 
         for (int i = 0; i < GameManager.Instance.starsEarned; i++)
         {
             await Task.Delay(400);
-            starImages[i].DOColor(starColor, .4f).SetEase(Ease.Linear);
+            starImages[i].DOColor(color, .4f).SetEase(Ease.Linear);
         }
 
-        await Task.Delay(700);
-        starsEarnedText.text = "+" + GameManager.Instance.starsEarned;
-        starsEarnedPanel.transform.DOLocalMoveY(starsEarnedPanel.transform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
-        starsEarnedPanel.DOFade(1, .4f).SetEase(Ease.Linear);
+        if (PlayerPrefs.GetInt("selected area") == PlayerPrefs.GetInt("unlocked area"))
+        {
+            await Task.Delay(700);
+            starsEarnedText.text = "+" + GameManager.Instance.starsEarned;
+            starsEarnedPanel.transform.DOLocalMoveY(starsEarnedPanel.transform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
+            starsEarnedPanel.DOFade(1, .4f).SetEase(Ease.Linear);
+        }
+        else
+        {
+            gemsEarnedPanel.transform.position = starsEarnedPanel.transform.position;
+        }
 
         await Task.Delay(700);
         gemsEarnedText.text = "+" + GameManager.Instance.gemsEarned;
@@ -75,8 +85,13 @@ public class UIManager : MonoBehaviour
         gemsEarnedPanel.DOFade(1, .4f).SetEase(Ease.Linear);
 
         await Task.Delay(500);
-        starsText.text = PlayerPrefs.GetInt("stars").ToString();
-        starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+
+        if (PlayerPrefs.GetInt("selected area") == PlayerPrefs.GetInt("unlocked area"))
+        {
+            starsText.text = PlayerPrefs.GetInt("stars").ToString();
+            starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+        }
+
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();
         gemsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
 
@@ -97,7 +112,6 @@ public class UIManager : MonoBehaviour
         outOfStonesText.DOFade(1, .5f).SetEase(Ease.Linear);
 
         await Task.Delay(1500);
-
         outOfStonesText.rectTransform.DOLocalMoveY(outOfStonesText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.InSine);
         outOfStonesText.DOFade(0, .5f).SetEase(Ease.Linear);
 
@@ -128,17 +142,35 @@ public class UIManager : MonoBehaviour
     {
         doubleRewardsButton.gameObject.SetActive(false);
 
-        await Task.Delay(700);
-        starsEarnedText.text = "+" + GameManager.Instance.starsEarned;
+        await Task.Delay(250);
+        rewardGrantedText.rectTransform.DOLocalMoveY(rewardGrantedText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.OutSine);
+        rewardGrantedText.DOFade(1, .4f).SetEase(Ease.Linear);
+
+        await Task.Delay(500);
+
+        if (PlayerPrefs.GetInt("selected area") == PlayerPrefs.GetInt("unlocked area"))
+        {
+            starsEarnedText.text = "+" + GameManager.Instance.starsEarned;
+            starsEarnedText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+        }
+
         gemsEarnedText.text = "+" + GameManager.Instance.gemsEarned;
-        starsEarnedText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
         gemsEarnedText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
 
         await Task.Delay(500);
-        starsText.text = PlayerPrefs.GetInt("stars").ToString();
-        starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+
+        if (PlayerPrefs.GetInt("selected area") == PlayerPrefs.GetInt("unlocked area"))
+        {
+            starsText.text = PlayerPrefs.GetInt("stars").ToString();
+            starsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+        }
+
         gemsText.text = PlayerPrefs.GetInt("gems").ToString();
         gemsText.rectTransform.DOPunchAnchorPos(10 * Vector2.up, .4f, 1, 0);
+
+        await Task.Delay(1000);
+        rewardGrantedText.rectTransform.DOLocalMoveY(rewardGrantedText.rectTransform.localPosition.y - 30, .5f).SetEase(Ease.InSine);
+        rewardGrantedText.DOFade(0, .4f).SetEase(Ease.Linear);
     }
 
     void OpenGameOverMenu()

@@ -119,6 +119,7 @@ public class UnitManager : MonoBehaviour
         if (currentStones >= GameManager.Instance.area.starValues[1])
         {
             GameManager.Instance.starsEarned = 3;
+            GameManager.Instance.bonusGems = currentStones - GameManager.Instance.area.starValues[1];
         }
         else if (currentStones >= GameManager.Instance.area.starValues[0])
         {
