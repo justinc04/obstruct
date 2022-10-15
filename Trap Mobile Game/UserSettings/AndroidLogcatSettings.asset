@@ -2,8 +2,8 @@
     "m_SelectedDeviceId": "279fbdd1",
     "m_SelectedPackage": {
         "deviceId": "279fbdd1",
-        "name": "com.DefaultCompany.Obstruct",
-        "processId": 21798,
+        "name": "com.Agyrzstar.Obstruct",
+        "processId": 20790,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -150,6 +150,18 @@
             "deviceId": "279fbdd1",
             "name": "com.DefaultCompany.Obstruct",
             "processId": 21798,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.DefaultCompany.Obstruct",
+            "processId": 11077,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.Agyrzstar.Obstruct",
+            "processId": 20790,
             "exited": false
         }
     ],
