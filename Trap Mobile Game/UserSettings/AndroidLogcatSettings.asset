@@ -3,7 +3,7 @@
     "m_SelectedPackage": {
         "deviceId": "279fbdd1",
         "name": "com.Agyrzstar.Obstruct",
-        "processId": 20790,
+        "processId": 12639,
         "exited": false
     },
     "m_SelectedPriority": 0,
@@ -162,6 +162,12 @@
             "deviceId": "279fbdd1",
             "name": "com.Agyrzstar.Obstruct",
             "processId": 20790,
+            "exited": false
+        },
+        {
+            "deviceId": "279fbdd1",
+            "name": "com.Agyrzstar.Obstruct",
+            "processId": 12639,
             "exited": false
         }
     ],
